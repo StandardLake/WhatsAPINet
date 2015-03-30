@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -42,7 +42,7 @@ namespace WhatsAppApi.Settings
         /// <summary>
         /// The whatsapp version the client complies to
         /// </summary>
-        public const string WhatsAppVer = "2.11.272";
+        public const string WhatsAppVer = "2.11.16";
 
         /// <summary>
         /// The port that needs to be connected to
@@ -52,12 +52,7 @@ namespace WhatsAppApi.Settings
         /// <summary>
         /// iPhone device
         /// </summary>
-        public const string Device = "Android";
-
-        /// <summary>
-        /// The useragent used for http requests
-        /// </summary>
-        public const string UserAgent = "WhatsApp/2.11.272 Android/4.0.4 Device/GalaxyS2";
+        public const string Device = "S40";
 
         #endregion
 
