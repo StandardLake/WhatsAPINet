@@ -1,4 +1,4 @@
-﻿namespace WhatsAppApi.Parser
+namespace WhatsAppApi.Parser
 {
     public interface FMessageVisitor
     {
