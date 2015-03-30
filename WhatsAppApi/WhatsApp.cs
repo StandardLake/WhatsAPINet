@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
@@ -311,7 +311,7 @@ namespace WhatsAppApi
                     sb.AppendFormat("POST {0}\r\n", uploadUrl);
                     sb.AppendFormat("Content-Type: multipart/form-data; boundary={0}\r\n", boundary);
                     sb.AppendFormat("Host: {0}\r\n", uri.Host);
-                    sb.AppendFormat("User-Agent: {0}\r\n", WhatsConstants.UserAgent);
+                    sb.AppendFormat("User-Agent: {0}\r\n",this.Registration.GetUserAgent());
                     sb.AppendFormat("Content-Length: {0}\r\n\r\n", clength);
                     string post = sb.ToString();
 
@@ -773,7 +773,7 @@ namespace WhatsAppApi
             this.SendNode(node);
         }
 
-        public void SendSetPhoto(string jid, byte[] bytes, byte[] thumbnailBytes = null)
+        public void SendSetPhoto(byte[] bytes, byte[] thumbnailBytes = null)
         {
             string id = TicketCounter.MakeId("set_photo_");
 
@@ -795,7 +795,7 @@ namespace WhatsAppApi
             {
                 list.Add(new ProtocolTreeNode("picture", new[] { new KeyValue("type", "preview") }, null, thumbnailBytes));
             }
-            var node = new ProtocolTreeNode("iq", new[] { new KeyValue("id", id), new KeyValue("type", "set"), new KeyValue("xmlns", "w:profile:picture"), new KeyValue("to", GetJID(jid)) }, list.ToArray());
+            var node = new ProtocolTreeNode("iq", new[] { new KeyValue("id", id), new KeyValue("type", "set"), new KeyValue("xmlns", "w:profile:picture"), new KeyValue("to", GetJID(this.phoneNumber)) }, list.ToArray());
             this.SendNode(node);
         }
 
